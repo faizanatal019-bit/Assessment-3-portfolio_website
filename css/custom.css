@@ -1,0 +1,456 @@
+/* Faizan Atal portfolio | INFO1005 Assessment 3
+   Custom styles. This file loads AFTER Bootstrap so it can override it.
+   The page uses Bootstrap's dark theme (data-bs-theme="dark" on the html tag). */
+
+/* ---------- Brand colours and fonts ----------
+   Colours chosen with Adobe Color
+   Contrast checked with WebAIM: all text and background pairs pass WCAG AA. */
+:root {
+  --navy: #0b1220;
+  --card: #131c2e;
+  --text: #e6edf3;
+  --teal: #2dd4bf;
+  --slate: #94a3b8;
+  --line: rgba(45, 212, 191, 0.25);
+  --heading-font: "Michroma", Arial, sans-serif;
+  --body-font: "Source Sans 3", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* keeps section titles clear of the fixed menu */
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--navy);
+  color: var(--text);
+  line-height: 1.65;
+}
+.profile-photo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 1rem;
+  border: 3px solid var(--teal);
+  margin-bottom: 1rem;
+}
+/* ---------- Typography ----------
+   Michroma has one weight only, so it is only used for large headings.
+   Smaller headings use Source Sans 3 so they stay easy to read. */
+h1,
+h2 {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+h1 {
+  color: var(--text);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: var(--teal);
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  margin-bottom: 1.25rem;
+}
+
+h3,
+h4 {
+  font-family: var(--body-font);
+  font-weight: 700;
+}
+
+h3 {
+  color: var(--text);
+  font-size: 1.3rem;
+}
+
+h4 {
+  color: var(--slate);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p,
+li {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--teal);
+}
+
+a:hover {
+  color: #7ef0e0;
+}
+
+/* Visible keyboard focus for accessibility */
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 2000;
+  background: var(--teal);
+  color: var(--navy);
+  padding: 0.5rem 1rem;
+}
+
+/* ---------- Navigation ---------- */
+.navbar {
+  background-color: rgba(11, 18, 32, 0.94);
+  border-bottom: 2px solid var(--teal);
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--text);
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active,
+.navbar-brand:hover {
+  color: var(--teal);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.5rem;
+  border: 2px solid var(--teal);
+  border-radius: 50%;
+  color: var(--teal);
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+}
+
+/* ---------- Hero ----------
+   The terminal is the one moving feature of the page. */
+.hero {
+  padding: 5rem 0;
+  background-image: linear-gradient(
+      rgba(45, 212, 191, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.07) 1px, transparent 1px),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(45, 212, 191, 0.16),
+      transparent 45%
+    );
+  background-size: 48px 48px, 48px 48px, auto;
+  background-color: var(--navy);
+}
+
+.eyebrow {
+  color: var(--slate);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.lead-intro {
+  font-size: 1.2rem;
+  max-width: 34rem; /* keeps the line length readable */
+}
+
+.terminal {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.12);
+}
+
+.terminal-bar {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal-bar span {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+/*adding colors to the small circuls*/
+.terminal-bar span:nth-child(1) {
+  background-color: #ff5f57;
+} 
+.terminal-bar span:nth-child(2) {
+  background-color: #febc2e;
+} 
+.terminal-bar span:nth-child(3) {
+  background-color: #28c840;
+} 
+
+.terminal-body {
+  min-height: 14rem; /* stops the layout jumping while the text types */
+  padding: 1rem 1.1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+}
+
+.terminal-body .prompt {
+  color: var(--teal);
+}
+.terminal-body .result {
+  color: var(--slate);
+}
+
+.caret {
+  display: inline-block;
+  width: 0.6rem;
+  height: 1.1em;
+  background-color: var(--teal);
+  vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Layout and panels ---------- */
+.site-content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.content-panel {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Skills ---------- */
+.skill-group-title {
+  color: var(--teal);
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-badge {
+  display: inline-block;
+  margin: 0 0.4rem 0.5rem 0;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--teal);
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ---------- Experience timeline ---------- */
+.timeline-item {
+  border-left: 4px solid var(--teal);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Projects ---------- */
+.projects-subtitle {
+  margin-top: 0.5rem;
+}
+
+.lab-card {
+  background-color: var(--navy);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Lift effect only on the lab cards, because they are links */
+.lab-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--teal);
+  box-shadow: 0 0.75rem 1.5rem rgba(45, 212, 191, 0.15);
+}
+
+.lab-icon {
+  font-size: 1.8rem;
+  color: var(--teal);
+}
+
+.lab-title {
+  color: var(--text);
+  margin-top: 0.5rem;
+}
+
+.lab-tags {
+  color: var(--slate);
+  font-size: 0.9rem;
+}
+
+.carousel-img {
+  height: 380px;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+/* Teal border around the Visit NSW photo slider */
+#project-carousel {
+  border: 3px solid var(--teal);
+  border-radius: 1rem;
+  overflow: hidden; /* keeps the photos inside the rounded corners */
+  box-shadow: 0 0 24px rgba(45, 212, 191, 0.18);
+}
+
+.carousel-caption {
+  text-align: left;
+  background-color: rgba(11, 18, 32, 0.82);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.carousel-caption p {
+  margin: 0;
+  color: var(--text);
+}
+
+.carousel-caption .caption-title {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* ---------- Buttons ---------- */
+.custom-btn,
+.custom-btn-secondary {
+  border: 2px solid var(--teal);
+  font-weight: 700;
+}
+
+.custom-btn {
+  background-color: var(--teal);
+  color: var(--navy);
+}
+
+.custom-btn-secondary {
+  background-color: transparent;
+  color: var(--teal);
+}
+
+.custom-btn:hover,
+.custom-btn:focus {
+  background-color: transparent;
+  color: var(--teal);
+  box-shadow: 0 0 18px rgba(45, 212, 191, 0.45);
+}
+
+.custom-btn-secondary:hover,
+.custom-btn-secondary:focus {
+  background-color: var(--teal);
+  color: var(--navy);
+}
+
+/* ---------- Accordion ---------- */
+.accordion {
+  --bs-accordion-bg: var(--navy);
+  --bs-accordion-color: var(--text);
+  --bs-accordion-border-color: var(--line);
+}
+
+.accordion-button {
+  font-weight: 700;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--teal);
+  color: var(--navy);
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0); /* dark arrow on the teal background */
+}
+
+/* ---------- Contact and footer ---------- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.6rem;
+}
+
+.contact-list i {
+  margin-right: 0.6rem;
+  color: var(--teal);
+}
+
+.site-footer {
+  background-color: var(--card);
+  border-top: 2px solid var(--teal);
+  padding: 2rem 0;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.footer-links a {
+  margin-right: 1rem;
+  font-size: 1.4rem;
+}
+
+/* ---------- Responsive rules ---------- */
+@media (max-width: 991.98px) {
+  .hero {
+    padding: 3rem 0;
+  }
+
+  .carousel-img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .content-panel {
+    padding: 1rem;
+  }
+
+  /* On phones the caption sits below the photo instead of covering it */
+  .carousel-caption {
+    position: static;
+    border-radius: 0;
+  }
+}
+
+/* ---------- Reduced motion: respect people who turn animation off ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .caret {
+    animation: none;
+  }
+
+  .lab-card {
+    transition: none;
+  }
+}
